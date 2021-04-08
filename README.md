@@ -13,17 +13,17 @@
 
 ## prototypesテーブル
 
-| column     | Type          | Option
-| ---------- | ------------- |---------------------
-| title      | string        | null:false
-| catch_copy | text          | null:false 
-| concept    | text          | null:false
-| user       | references    | foreign_key:true
+| column     | Type          | Option           |
+| ---------- | ------------- |----------------- |
+| title      | string        | null:false       |
+| catch_copy | text          | null:false       |
+| concept    | text          | null:false       |
+| user       | references    | foreign_key:true |
 
 ## commentsテーブル
 
-| colum      | Type          | Option
-| ---------- | ------------- | ---------------------
-| text       | text          | null:false
-| user       | references    | foreign_key:true
-| prototype  | references    | foreign_key:true
+| colum      | Type          | Option           |
+| ---------- | ------------- | ---------------- |
+| text       | text          | null:false       |
+| user       | references    | foreign_key:true |
+| prototype  | references    | foreign_key:true |
