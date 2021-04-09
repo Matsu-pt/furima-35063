@@ -4,17 +4,18 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
   with_options presence: true do
-    validates :nickname
-    with_options format: { with: /\A(?:\p{Hiragana}|\p{Katakana}|[一-龠々])+\z/ } do
-      validates :first_name
-      validates :family_name
-    end
-    with_options format: { with: /[\p{katakana} ー－&&[^ -~｡-ﾟ]]+/ } do
-      validates :first_name_ruby
-      validates :family_name_ruby
-    end
-    validates :birth_day
+    validates :nickname, :first_name, :family_name, :first_name_ruby, :family_name_ruby, :birth_day
   end
-  validates :password, format: { with: /\A[a-z0-9]+\z/i }
+
+  with_options format: { with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/ }, allow_blank: true do
+    validates :first_name
+    validates :family_name
+  end
+  with_options format: { with: /[\p{katakana} ー－&&[^ -~｡-ﾟ]]+/ }, allow_blank: true do
+    validates :first_name_ruby
+    validates :family_name_ruby
+  end
+  validates :password, format: { with: /\A[a-z0-9]+\z/i }, allow_blank: true
 end
