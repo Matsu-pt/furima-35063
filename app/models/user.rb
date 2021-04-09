@@ -6,15 +6,15 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :nickname
-    with_options format: { with:/\A(?:\p{Hiragana}|\p{Katakana}|[一-龠々])+\z/} do
+    with_options format: { with: /\A(?:\p{Hiragana}|\p{Katakana}|[一-龠々])+\z/ } do
       validates :first_name
       validates :family_name
     end
-    with_options format: { with:/[\p{katakana} ー－&&[^ -~｡-ﾟ]]+/} do
+    with_options format: { with: /[\p{katakana} ー－&&[^ -~｡-ﾟ]]+/ } do
       validates :first_name_ruby
       validates :family_name_ruby
     end
     validates :birth_day
   end
-  validates :password, format: { with:/\A[a-z0-9]+\z/i}
+  validates :password, format: { with: /\A[a-z0-9]+\z/i }
 end
