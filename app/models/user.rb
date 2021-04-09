@@ -16,6 +16,5 @@ class User < ApplicationRecord
     end
     validates :birth_day
   end
-
-  validates :encrypted_password, format: { with:/\A[a-z0-9]+\z/i}
+  validates :password, format: { with:/\A[a-z0-9]+\z/i}
 end
