@@ -7,7 +7,7 @@ RSpec.describe Item, type: :model do
 
   describe '商品の保存 ' do
     context '商品が投稿できる場合' do
-      it '画像、商品名、説明文、カテゴリー、状態、発送までの日数、発送元の地域、配送料の負担、販売価格があれば投稿できる' do
+      it 'user_id,画像、商品名、説明文、カテゴリー、状態、発送までの日数、発送元の地域、配送料の負担、販売価格があれば投稿できる' do
         expect(@item).to be_valid
       end
     end
@@ -77,6 +77,11 @@ RSpec.describe Item, type: :model do
         @item.price = '１０００'
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not a number')
+      end
+      it 'userが紐付いていないと登録できない' do
+        @item.user_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("User can't be blank")
       end
     end
   end
