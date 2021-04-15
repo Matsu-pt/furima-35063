@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :category, :derivery_fee, :shipping_area, :shipping_day, :status
+  belongs_to :category, :derivery_fee, :shipping_area, :shipping_day, :status, :user
   has_one_attached :image
 
   with_options presence: true do
