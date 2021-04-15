@@ -1,7 +1,12 @@
 class Item < ApplicationRecord
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :category, :derivery_fee, :shipping_area, :shipping_day, :status, :user
+  belongs_to :user
   has_one_attached :image
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :category
+  belongs_to :delivery_fee
+  belongs_to :shipping_area
+  belongs_to :shipping_day
+  belongs_to :status 
 
   with_options presence: true do
     validates :image, :name, :explanation, :category_id, :status_id, :shipping_day_id, :shipping_area_id, :delivery_fee_id, :price, :user_id
