@@ -4,7 +4,7 @@ FactoryBot.define do
       person { Gimei.name }
     end
 
-    email {Faker::Internet.free_email}
+    email { Faker::Internet.free_email }
     password { 'qq12345' }
     password_confirmation { password }
     nickname { Faker::Name.name }
@@ -15,4 +15,3 @@ FactoryBot.define do
     birth_day { '1930-01-01' }
   end
 end
-
