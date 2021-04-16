@@ -13,7 +13,6 @@
 | birth_day            | date    | null: false               |
 
 ### Association
-
 * has_many :items
 * has_many :purchases
 
