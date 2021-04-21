@@ -53,7 +53,7 @@
 | shipping_area_id   | integer   | null: false       |
 | municipality       | string    | null: false       |
 | address            | string    | null: false       |
-| build              | string    | null: false       |
+| build              | string    |                   |
 | phone_number       | string    | null: false       |
 | purchase           | references| foreign_key: true |
 
