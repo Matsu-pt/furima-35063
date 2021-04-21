@@ -14,9 +14,23 @@ RSpec.describe PurchaseDelivery, type: :model do
       it '全ての値が正しく入力されていれば保存できる' do
         expect(@purchase_delivery).to be_valid
       end
+      it '建物が空でも登録できる' do
+        @purchase_delivery.build = ''
+        expect(@purchase_delivery).to be_valid
+      end
     end
 
     context '内容に問題があるとき' do
+      it 'user_idがnilの時' do
+        @purchase_delivery.user_id = ''
+        @purchase_delivery.valid?
+        expect(@purchase_delivery.errors.full_messages).to include("User can't be blank")
+      end
+      it 'item_idがnilの時' do
+        @purchase_delivery.item_id = ''
+        @purchase_delivery.valid?
+        expect(@purchase_delivery.errors.full_messages).to include("Item can't be blank")
+      end
       it '郵便番号にハイフンがないとき' do
         @purchase_delivery.postal_code = '1234567'
         @purchase_delivery.valid?
@@ -49,6 +63,11 @@ RSpec.describe PurchaseDelivery, type: :model do
       end
       it '電話番号が11桁より大きい場合' do
         @purchase_delivery.phone_number = '123456789012'
+        @purchase_delivery.valid?
+        expect(@purchase_delivery.errors.full_messages).to include("Phone number is invalid")
+      end
+      it '電話番号にハイフンが使用している場合' do
+        @purchase_delivery.phone_number = '1234-567890'
         @purchase_delivery.valid?
         expect(@purchase_delivery.errors.full_messages).to include("Phone number is invalid")
       end
