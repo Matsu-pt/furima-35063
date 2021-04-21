@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :update, :create, :destroy,]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :create, :destroy]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :much_current_user, only: [:edit, :update, :destroy]
 
@@ -24,9 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if @item.purchase.present?
-      redirect_to root_path
-    end
+    redirect_to root_path if @item.purchase.present?
   end
 
   def update
