@@ -18,5 +18,5 @@ class User < ApplicationRecord
     validates :first_name_ruby
     validates :family_name_ruby
   end
-  validates :password, :password_confirmation, format: { with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{7,}/ }
+  validates :password, :password_confirmation, format: { with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}/ }
 end
