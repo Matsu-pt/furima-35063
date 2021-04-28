@@ -1,0 +1,27 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        first_name: 姓
+        family_name: 名
+        first_name_ruby: 姓のカナ
+        family_name_ruby: 名のカナ
+        birth_day: 誕生日
+      item:
+        image: 商品画像
+        name: 商品名
+        explanation: 商品の説明
+        price: 販売価格
+        category_id: カテゴリー
+        delivery_fee_id: 配送料の負担
+        shipping_area_id: 発送元の地域
+        shipping_day_id: 発送までの日数
+        status_id: 商品の状態
+        must_be_other_than_1: テスト
+      purchase_delivery:
+        municipality: テスト
+        address: 住所
+        token: クレジットカード情報
+
+
