@@ -3,8 +3,8 @@ ja:
     attributes:
       user:
         nickname: ニックネーム
-        first_name: 姓
-        family_name: 名
+        first_name: 名
+        family_name: 姓
         first_name_ruby: 姓のカナ
         family_name_ruby: 名のカナ
         birth_day: 誕生日
