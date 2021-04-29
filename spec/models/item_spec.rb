@@ -16,7 +16,7 @@ RSpec.describe Item, type: :model do
       it '出品画像が空では投稿できない' do
         @item.image = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("")
+        expect(@item.errors.full_messages).to include("Image を選択して下さい")
       end
       it '商品名が空では投稿できない' do
         @item.name = ''
@@ -31,27 +31,27 @@ RSpec.describe Item, type: :model do
       it '商品カテゴリーの選択が適切で無いと投稿できない' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Category must be other than 1')
+        expect(@item.errors.full_messages).to include('Category を選択して下さい')
       end
       it '商品の状態の選択が適切で無いと投稿できない' do
         @item.status_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Status must be other than 1')
+        expect(@item.errors.full_messages).to include('Status を選択して下さい')
       end
       it '発送までの日数の選択が適切で無いと投稿できない' do
         @item.shipping_day_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Shipping day must be other than 1')
+        expect(@item.errors.full_messages).to include('Shipping day を選択して下さい')
       end
       it '発送元の地域の選択が適切で無いと投稿できない' do
         @item.shipping_area_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Shipping area must be other than 1')
+        expect(@item.errors.full_messages).to include('Shipping area を選択して下さい')
       end
       it '配送料の負担の選択が適切で無いと投稿できない' do
         @item.delivery_fee_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Delivery fee must be other than 1')
+        expect(@item.errors.full_messages).to include('Delivery fee を選択して下さい')
       end
       it '販売価格が空だと投稿できない' do
         @item.price = ''
@@ -61,27 +61,27 @@ RSpec.describe Item, type: :model do
       it '販売価格が300より小さいと投稿できない' do
         @item.price = 299
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
+        expect(@item.errors.full_messages).to include('Price は300~9,999,999の範囲内で入力して下さい')
       end
       it '販売価格が9999999より大きいと投稿できない' do
         @item.price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
+        expect(@item.errors.full_messages).to include('Price は300~9,999,999の範囲内で入力して下さい')
       end
       it '販売価格が整数でなければ登録できない' do
         @item.price = 350.5
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price must be an integer')
+        expect(@item.errors.full_messages).to include('Price は300~9,999,999の範囲内で入力して下さい')
       end
       it '販売価格が全角では登録できない' do
         @item.price = '１０００'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price is not a number')
+        expect(@item.errors.full_messages).to include('Price は300~9,999,999の範囲内で入力して下さい'),('Price は半角英数字で入力して下さい')
       end
       it 'userが紐付いていないと登録できない' do
-        @item.user_id = nil
+        @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("User can't be blank")
+        expect(@item.errors.full_messages).to include("User must exist")
       end
     end
   end
