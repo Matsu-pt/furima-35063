@@ -9,7 +9,7 @@ ja:
         family_name_ruby: 名のカナ
         birth_day: 誕生日
       item:
-        image: 商品画像
+        image: 出品画像
         name: 商品名
         explanation: 商品の説明
         price: 販売価格
@@ -18,10 +18,12 @@ ja:
         shipping_area_id: 発送元の地域
         shipping_day_id: 発送までの日数
         status_id: 商品の状態
-        must_be_other_than_1: テスト
+  activemodel:
+    attributes:
       purchase_delivery:
-        municipality: テスト
-        address: 住所
+        municipality: 市区町村
+        shipping_area_id: 都道府県
+        postal_code: 郵便番号
+        phone_number: 電話番号
         token: クレジットカード情報
-
-
+        address: 番地
