@@ -5,7 +5,7 @@ class PurchaseDelivery
 
   with_options presence: true do
     validates :item_id, :user_id, :municipality, :address, :phone_number
-    validates :shipping_area_id, numericality: { other_than: 1 }
+    validates :shipping_area_id, numericality: { other_than: 1, message: 'を選択して下さい'}
     validates :postal_code
     validates :token
   end

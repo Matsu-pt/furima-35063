@@ -43,7 +43,7 @@ RSpec.describe PurchaseDelivery, type: :model do
       it '都道府県の記載が適切でないとき' do
         @purchase_delivery.shipping_area_id = 1
         @purchase_delivery.valid?
-        expect(@purchase_delivery.errors.full_messages).to include('Shipping area must be other than 1')
+        expect(@purchase_delivery.errors.full_messages).to include('Shipping area を選択して下さい')
       end
       it '市区町村の記載がないとき' do
         @purchase_delivery.municipality = ''
